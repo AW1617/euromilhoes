@@ -1,4 +1,4 @@
-# EuroMilhoes (versão 1)
+# EuroMilhões (versão 1)
 
 ## Objetivo
 
