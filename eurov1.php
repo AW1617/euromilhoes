@@ -2,21 +2,33 @@
 
 // versao simplificada
 function extraiChave($min,$max,$n) {
+  // cria array temporário
   $chave = array();
 
   for($i = 0 ; $i < $n; $i++) {
+    // gera aleatorio
     $chave[] = rand($min,$max);
   }
+
+ // nota: nada garante que não haja
+ // repetidos
+
+ // TODO : fazer uma versão que verifique
+ // se existem repetidos
 
   return $chave;
 }
 
 
-
+// extração dos números
 $numeros = extraiChave(1,50,5);
+// extração das estrelas
 $estrelas = extraiChave(1,12,2);
 
-// versão "simples"
+// escreve chave em HTML
+$oHTML = fazChaveHTML($numeros,$estrelas);
+
+// versão "simples" de fazChaveHTML
 function fazChaveHTML($osnumeros,$asestrelas) {
   $html = "<div class=\"chave\">";
 
@@ -40,13 +52,6 @@ function fazChaveHTML($osnumeros,$asestrelas) {
 
   return $html;
 }
-
-$oHTML = fazChaveHTML($numeros,$estrelas);
-
-
-
-
-var_dump($estrelas);
 
 ?>
 <!DOCTYPE html>
