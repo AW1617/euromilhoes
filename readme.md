@@ -56,7 +56,7 @@ function extraiChave($min,$max,$n) {
 ```
 
 ### nota
-numa primeira versão poderá apenas gerar 5 numeros aleatórios usando a função `random`. Depois implemente um algoritmo que evite a existência de números repetidos. E finalmente ordene os números extraídos.
+numa primeira versão poderá apenas gerar 5 numeros aleatórios usando a função `rand()`. Depois implemente um algoritmo que evite a existência de números repetidos. E finalmente ordene os números extraídos.
 
 
 ## Passo 3
