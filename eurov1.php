@@ -27,6 +27,8 @@ $estrelas = extraiChave(1,12,2);
 
 // escreve chave em HTML
 $oHTML = fazChaveHTML($numeros,$estrelas);
+$oHTML2 = fazChaveHTML2($numeros,$estrelas);
+
 
 // versão "simples" de fazChaveHTML
 function fazChaveHTML($osnumeros,$asestrelas) {
@@ -52,6 +54,50 @@ function fazChaveHTML($osnumeros,$asestrelas) {
 
   return $html;
 }
+
+
+
+
+/*
+<div class="chave">
+      <ul class="numeros">
+        <li> 2 </li>
+        <li> 3 </li>
+        <li> 5 </li>
+        <li> 33 </li>
+        <li> 44 </li>
+      </ul>
+      <ul class="estrelas">
+        <li>3</li>
+        <li>5</li>
+      </ul>
+    </div>
+
+*/
+
+
+    // versão "simpleXML" de fazChaveHTML
+function fazChaveHTML2($osnumeros,$asestrelas) {
+  $xhtml = new SimpleXMLElement("<div></div>");
+  $xhtml->addAttribute("class","chave");
+
+  $uln = $xhtml->addChild("ul");
+  $uln->addAttribute("class","numeros");
+
+  $ule = $xhtml->addChild("ul");
+  $ule->addAttribute("class","estrelas");
+
+  foreach ($osnumeros as $numero) {
+    $uln->addChild("li",$numero);
+  }
+  foreach ($asestrelas as $estrela) {
+    $ule->addChild("li",$estrela);
+  }
+
+  return $xhtml->asXML();
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -80,6 +126,7 @@ function fazChaveHTML($osnumeros,$asestrelas) {
 
     <?php
       echo $oHTML;
+      echo $oHTML2;
     ?>
 	</div>
 </body>
